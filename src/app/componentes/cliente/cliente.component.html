@@ -1,0 +1,50 @@
+<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px">
+    <form  [formGroup]="form" fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutAlign="start start" 
+    style="width: 100%;">
+
+    <div fxFlex="50">
+      <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+      </mat-icon>
+      <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+        <mat-label>Nombres</mat-label>
+        <input matInput maxlength="20" placeholder="Nombres"  id="producto"
+          formControlName="nombre" >
+        
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="50">
+      <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+      </mat-icon>
+      <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+        <mat-label>Apellidos</mat-label>
+        <input matInput maxlength="20" placeholder="apellido"  id="apellido"
+          formControlName="apellido" >
+        
+      </mat-form-field>
+    </div>
+    <div fxFlex="50" >
+        <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+        </mat-icon>
+        <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+          <mat-label>Cedula</mat-label>
+          <input matInput maxlength="20" placeholder="cedula"  id="cedula"
+            formControlName="cedula" >
+          
+        </mat-form-field>
+      </div>
+      
+  </form>
+  
+</div>
+<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px" >
+    <div fxFlex="100" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click) = "crearCliente()">
+            <mat-icon name="clipboard-list" class="hidden sm:inline-flex mr-2" [svgIcon]="'heroicons_outline:plus'">
+            </mat-icon>
+            Guardar cliente
+          </button>
+    </div> 
+
+</div>
+

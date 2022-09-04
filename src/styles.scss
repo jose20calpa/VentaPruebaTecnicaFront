@@ -1,0 +1,108 @@
+
+@import '~@angular/material/theming';
+// Colors scss
+@import "colors";
+
+// ng-select styles
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+// Custom/My styles
+@import "custom-styles";
+
+//  ngx-toastr Styles
+@import '~ngx-toastr/toastr';
+
+// Import app.theme.scss
+@font-face {
+        font-family: Miso;
+        src: url(./assets/fonts/miso.woff) format("woff");
+}
+    
+:root {
+        --fuse-primary: #005dad;
+        --primary: #005DAD;
+        --secundary: #DD0021;
+        --terceary: #FBD500;
+        --warning: #DD7600;
+        --success: #56AF31;
+        --morado: #EA7AF4;
+        --naranja: #FFC07E;
+        --verdeclaro1: #88DD91;
+}
+    
+$primary: #005dad;
+$secundary: #dd0021;
+$terceary: #fbd500;
+$warning: #dd0021;
+$success: #56af31;
+$greey: #9ea1a9;
+$white: #fff;
+$zebraAzul: #e5f1fa;
+$greey-white: #e9e9e9;
+   
+
+
+$custom-typography : mat-typography-config(
+        $font-family : 'Miso, "Helvetica Neue", Arial, sans-serif',
+        $title       : mat-typography-level(20px, 32px, 600),
+        $body-2      : mat-typography-level(14px, 24px, 600),
+        $button      : mat-typography-level(14px, 14px, 600),
+        $input       : mat-typography-level(12px, 1.125, 400)
+);
+@include mat-core($custom-typography);
+
+
+$oc-manuales-theme : mat-light-theme((
+        color: (
+                primary: mat-palette($md-primary-sod-color),
+                accent: mat-palette($md-accent-sod-color),
+                warn: mat-palette($md-second-sod-color),
+        )
+));
+
+@include angular-material-theme($oc-manuales-theme);
+
+html, body {
+  height      : 100% !important;
+  margin      : 0;
+  font-family : Muli, "Miso", Arial, sans-serif;
+  font-size   : 12px;
+}
+
+.progress-inner {
+  padding : 3px !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Miso", sans-serif; }
+
+body.theme-default {
+        font-family: "Miso", Tahoma, "Segoe UI" !important;
+}
+
+::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    
+    ::-webkit-scrollbar:hover {
+        background-color: rgba(0, 0, 0, 0.12);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border: 2px solid transparent;
+        box-shadow: inset 0 0 0 12px rgba(0, 0, 0, 0.37);
+        border-radius: 12px;
+    }
+    
+    ::-webkit-scrollbar-thumb:active {
+        box-shadow: inset 0 0 0 12px rgba(0, 0, 0, 0.54);
+        border-radius: 12px;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 1em 0 1em 0;
+        font-size: 14pt !important;
+    }
+    

@@ -1,0 +1,36 @@
+<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px">
+    <form  [formGroup]="form" fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutAlign="space-evenly center"
+    style="width: 100%;">
+
+    <div fxFlex="50">
+      <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+      </mat-icon>
+      <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+        <mat-label>Producto</mat-label>
+        <input matInput maxlength="20" placeholder="nombre producto"  id="producto"
+          formControlName="nombre" >
+        
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="50">
+      <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+      </mat-icon>
+      <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+        <mat-label>ValorUnitario</mat-label>
+        <input matInput maxlength="20" placeholder="valorUnitario"  id="valorUnitario"
+          formControlName="valorUnitario" type="number">
+        
+      </mat-form-field>
+    </div>
+    <div fxFlex="20">
+        <button mat-raised-button color="primary" (click)=" crearProducto()" [disabled] = "form.invalid">
+            <mat-icon name="clipboard-list" class="hidden sm:inline-flex mr-2" [svgIcon]="'heroicons_outline:plus'">
+            </mat-icon>
+            Guardar producto
+          </button>
+    </div> 
+  </form>
+</div>
+
+

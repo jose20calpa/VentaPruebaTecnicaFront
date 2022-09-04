@@ -1,0 +1,192 @@
+<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px" fxLayoutAlign="start start"  >
+    <div fxLayout="column" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px">
+
+        
+    </div>
+    
+    <div fxFlex="10" class="ml-20">
+        <button mat-raised-button color="primary" (click) = "crearProducto()">
+            <mat-icon name="clipboard-list" class="hidden sm:inline-flex mr-2" >
+            </mat-icon>
+            Crear producto
+          </button>
+    </div> 
+    <div fxFlex="10">
+        <button mat-raised-button color="primary" (click) = "crearCliente()">
+            <mat-icon name="clipboard-list" class="hidden sm:inline-flex mr-2" >
+            </mat-icon>
+            Crear cliente
+          </button>
+    </div> 
+
+</div>
+
+
+
+<div fxLayout="column" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px">
+    <div class="ml-20 mt-20">
+        <h1>
+            Informacion Cliente
+
+        </h1>
+
+    </div>  
+    <div fxLayout="column" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px">
+        <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px">
+            <div fxFlex="20">
+                <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+                </mat-icon>
+                <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+                  <mat-label>Cedula</mat-label>
+                  <input matInput maxlength="20" [formControl]="textCedula"  placeholder="Cedula"  id="Cedula"
+                     >
+                  
+                </mat-form-field>
+              </div>
+              <div fxFlex="20">
+                <button mat-raised-button color="primary" (click) = "consultarCliente()">
+                    <mat-icon name="clipboard-list" class="hidden sm:inline-flex mr-2" >
+                    </mat-icon>
+                    Buscar Cliente
+                  </button>
+              </div>
+              
+              
+    
+        </div>
+        <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutGap="8px">
+            <div fxFlex="40">
+                <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+                </mat-icon>
+                <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+                  <mat-label>Nombre</mat-label>
+                  <input matInput maxlength="20" [(ngModel)]="nombre"  placeholder="Nombre"  
+                  readonly>
+                  
+                </mat-form-field>
+              </div>
+              <div fxFlex="40">
+                <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+                </mat-icon>
+                <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+                  <mat-label>Apelldio</mat-label>
+                  <input matInput maxlength="20" [(ngModel)]="apellido"  placeholder="apellido"  readonly>
+                  
+                </mat-form-field>
+              </div>
+        </div>
+        
+    </div>
+
+    
+    <div fxFlex="40">
+        
+      
+
+
+      <form  [formGroup]="form" fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutAlign="space-evenly center" style="width: 50%;">
+      
+      <div fxFlex="30">
+        <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+        </mat-icon>
+        <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+          <mat-label>Producto</mat-label>
+          <input matInput maxlength="20" placeholder="Producto"  id="producto"
+            formControlName="producto" >
+          
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="30">
+        <mat-icon class="hidden sm:inline-flex mr-2 mt-4" [svgIcon]="'heroicons_outline:user'">
+        </mat-icon>
+        <mat-form-field class="fuse-mat-no-subscript flex-auto" appearance="outline" fxFlex>
+          <mat-label>Cantidad</mat-label>
+          <input matInput maxlength="20" placeholder="Cantidad"  id="cantidad"
+            formControlName="cantidad" >
+          
+        </mat-form-field>
+      </div>
+      <div fxFlex="20">
+        <button mat-raised-button color="primary" (click) = "consultarProducto()"[disabled] = "form.invalid">
+            <mat-icon name="clipboard-list" class="hidden sm:inline-flex mr-2" >
+            </mat-icon>
+            Buscar y agregar producto
+          </button>
+          
+    </div>
+    <div fxFlex="10">
+        <button mat-raised-button color="primary" (click) = "registrarVenta()">
+            <mat-icon name="clipboard-list" class="hidden sm:inline-flex mr-2" >
+            </mat-icon>
+            Finalizar Compra
+          </button>
+    </div>
+    </form>
+</div>
+
+<div fxLayout="column" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="8px" class="ml-20 mt-20">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="
+            margin-left: 20px;
+            margin-right: 20px; font-size: 12pt;" multiTemplateDataRows>
+            <caption></caption>
+
+            <ng-container matColumnDef="producto">
+                <th mat-header-cell *matHeaderCellDef scope>
+                    <mat-label>Producto</mat-label>
+                </th>
+                <td mat-cell *matCellDef="let element"> 
+                    {{element.nombre}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cantidad">
+                <th mat-header-cell *matHeaderCellDef scope>Cantidad</th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.cantidad}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="valorUnitario">
+                <th mat-header-cell *matHeaderCellDef scope>Valor Unitario</th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.valorUnitario}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subtotal">
+                <th mat-header-cell *matHeaderCellDef scope>Subtotal</th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.subtotal}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef scope>Accion</th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    <button mat-raised-button color="primary" (click) = "eliminarProducto(i,element)">
+                        Eliminar
+                      </button>
+                </td>
+            </ng-container>
+ 
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+
+            <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="queue-element-row"></tr>
+
+            
+    </table>
+    <br>
+    <table class="mat-elevation-z8" style="
+    margin-left: 20px;
+    margin-right: 20px;">
+        <tr>
+            <td class="tr-total-titulo">
+                Total
+            </td>
+            <td class="tr-total-valor">
+                {{total}}
+            </td>
+        </tr>
+    </table>
+</div>
