@@ -148,9 +148,9 @@ export class VentaComponent implements OnInit {
     )
   }
 
-  eliminarProducto(posicion:number, element:any){
+  eliminarProducto(posicion:any, element:any){
     this.total = this.total - element.subtotal 
-    this.arregloProducto.splice(posicion, 1);
+    this.arregloProducto.splice(this.arregloProducto.indexOf(element), 1);
     this.dataSource = new MatTableDataSource(this.arregloProducto)
   }
 
